@@ -14,8 +14,8 @@ const NAV_ITEMS = [
 
 const WORKS = [
   {
-    title: 'Fan Community Site',
-    tags: ['Next.js', 'TypeScript'],
+    title: '加賀美インダストリアル非公式ファンサイト',
+    tags: ['VanillaJS', 'supabase'],
     metrics: '30,000 PV / week · 10,000 sessions',
     desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。',
   },
@@ -36,8 +36,8 @@ const WORKS = [
 const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
-  { group: 'Systems', items: ['C++', 'Linux', 'Docker', 'PostgreSQL'] },
-  { group: 'Certifications', items: ['基本情報技術者', 'MOS Master', '動画音響処理技術者'] },
+  { group: 'Systems', items: ['C', 'C++', 'Supabase', 'MySQL'] },
+  { group: 'Certifications', items: ['基本情報技術者', 'MOS Word 365&2019','MOS Excel 365&2019', '映像音響処理技術者'] },
 ];
 
 // ─── Main page ───────────────────────────────────────────────────────────────
@@ -131,7 +131,7 @@ export default function HomePage() {
               opacity: 0.9,
             }}
           >
-            PORTFOLIO
+            Luca's PORTFOLIO
           </span>
           <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
             {NAV_ITEMS.map(({ label, href }) => (
@@ -185,7 +185,7 @@ export default function HomePage() {
               marginBottom: '1.5rem',
             }}
           >
-            Software Engineer
+            Luca "Taigo Nagata"
           </p>
           <h1
             style={{
@@ -197,10 +197,10 @@ export default function HomePage() {
               letterSpacing: '-0.01em',
             }}
           >
-            Build with
+            Create with
             <br />
             <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>
-              Craft & Logic.
+              Consideration & Passion.
             </em>
           </h1>
           <p
@@ -212,8 +212,7 @@ export default function HomePage() {
               marginBottom: '3rem',
             }}
           >
-            ユーザーと向き合い、本質的な問題を解くエンジニア。
-            美しいコードと数値で語る成果が、私の信条です。
+            More helpful, more hopeful.　現状に甘んじることなく、常に向上していきたいと考えています。
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#works" style={primaryBtnStyle(fgColor, bgColor)}>
@@ -530,7 +529,7 @@ export default function HomePage() {
             {['GitHub', 'LinkedIn', 'Contact'].map(label => (
               <a
                 key={label}
-                href="#"
+                href="https://github.com/luminous-luca-dev"
                 style={{
                   color: fgColor,
                   textDecoration: 'none',
