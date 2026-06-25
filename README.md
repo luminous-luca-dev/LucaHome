@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Site — Next.js
 
-## Getting Started
+## ディレクトリ構成（App Router）
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+portfolio-site/
+├── app/
+│   ├── layout.tsx          ← ← ← layout.tsx をここに配置
+│   ├── page.tsx            ← ← ← page.tsx をここに配置
+│   └── globals.css         ← ← ← globals.css をここに配置
+├── components/
+│   ├── LoadingScreen.tsx   ← ← ← LoadingScreen.tsx をここに配置
+│   └── ScrollBackground.tsx← ← ← ScrollBackground.tsx をここに配置
+├── next.config.js
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## セットアップ手順
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 1. Next.jsプロジェクトを作成（既存プロジェクトにいれる場合はスキップ）
+npx create-next-app@latest portfolio-site --typescript --no-tailwind --no-eslint --src-dir=false --app --import-alias="@/*"
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 2. ファイルを上記のディレクトリ構成に配置
 
-## Learn More
+# 3. 開発サーバー起動
+cd portfolio-site
+npm run dev
+# → http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 実装済み機能
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 機能 | 実装 |
+|---|---|
+| ローディング画面 円環タイムバー | `LoadingScreen.tsx` — 3層同心円環 + 進行arc |
+| スクロール連動昼夜トランジション | `page.tsx` scrollRatio → `rgb()` 補間 |
+| 天体・天秤・円環グラフィック | `ScrollBackground.tsx` — SVG固定背景 |
+| 大理石テクスチャオーバーレイ | `page.tsx` + `LoadingScreen.tsx` — SVG feTurbulence |
+| レスポンシブレイアウト | `globals.css` media queries |
+| Playfair Display セリフ体 | `layout.tsx` Next.js Font最適化 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## カラーシステム
 
-## Deploy on Vercel
+```
+Day   #F5F0E8 (クリーム) / #1A1610 (インク)
+Night #0D0C0A (深黒)     / #EDE8DE (クリームテキスト)
+Gold  #C9A84C (アクセント) — スクロール深度と共に濃く
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 次のステップ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] `Works` の詳細ページ追加 (`app/works/[slug]/page.tsx`)
+- [ ] `Development Process` 各ページの詳細記述
+- [ ] アナリティクスデータの実数値に差し替え
+- [ ] GitHub / LinkedIn の href 設定
+- [ ] OG画像の生成 (`app/opengraph-image.tsx`)
+- [ ] Vercel デプロイ設定
