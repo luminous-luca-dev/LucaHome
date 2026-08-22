@@ -20,7 +20,7 @@ body {
   overflow-x: hidden;
   background: var(--cream);
   color: var(--ink);
-  font-family: Inter, "Noto Sans JP", sans-serif;
+  font-family: Inter, 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -74,7 +74,7 @@ h3,
 .section-eyebrow,
 .eyebrow,
 .footer span {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 .brand {
   font-size: 1.1rem;
@@ -264,7 +264,7 @@ h3,
   transform: translateY(-2px);
 }
 .work-card:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -324,7 +324,7 @@ h3,
 .process-label {
   text-align: right;
   padding-top: 0.15rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   opacity: 0.35;
@@ -363,7 +363,7 @@ h3,
   gap: 0.75rem;
 }
 .skill-group li:before {
-  content: "";
+  content: '';
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -422,7 +422,7 @@ h3,
   text-align: center;
 }
 .loading-logotype p {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1rem;
   letter-spacing: 0.35em;
   color: var(--ink);

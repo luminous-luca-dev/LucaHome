@@ -37,7 +37,7 @@ const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
   { group: 'Systems', items: ['C', 'C++', 'Supabase', 'MySQL'] },
-  { group: 'Certifications', items: ['基本情報技術者', 'MOS Word 365&2019','MOS Excel 365&2019', '映像音響処理技術者'] },
+  { group: 'Certifications', items: ['基本情報技術者', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者'] },
 ];
 
 // ─── Main page ───────────────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ export default function HomePage() {
   const goldOpacity = 0.15 + t * 0.45; // gold accent becomes richer at night
 
   const toggleTheme = () => {
-    setIsDark(current => {
+    setIsDark((current) => {
       const next = !current;
       window.localStorage.setItem('luca-theme', next ? 'dark' : 'light');
       return next;
@@ -80,8 +80,7 @@ export default function HomePage() {
           transition: 'background-color 0.45s ease, color 0.45s ease',
           minHeight: '100vh',
           fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
-        }}
-      >
+        }}>
         {/* ── Marble texture overlay ── */}
         <div
           aria-hidden
@@ -116,51 +115,41 @@ export default function HomePage() {
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             borderBottom: `1px solid rgba(${fgR},${fgG},${fgB},0.08)`,
-          }}
-        >
+          }}>
           <span
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: '1.1rem',
               letterSpacing: '0.12em',
               opacity: 0.9,
-            }}
-          >
+            }}>
             Luca's PORTFOLIO
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-          <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
-            {NAV_ITEMS.map(({ label, href }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  style={{
-                    color: fgColor,
-                    textDecoration: 'none',
-                    fontSize: '0.78rem',
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    opacity: 0.65,
-                    transition: 'opacity 0.2s',
-                  }}
-                  onMouseEnter={e => ((e.target as HTMLElement).style.opacity = '1')}
-                  onMouseLeave={e => ((e.target as HTMLElement).style.opacity = '0.65')}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <button
-            type="button"
-            className="theme-toggle"
-            aria-label={isDark ? 'ライトモードに切り替える' : 'ダークモードに切り替える'}
-            title={isDark ? 'Light mode' : 'Dark mode'}
-            onClick={toggleTheme}
-            style={themeToggleStyle(fgColor)}
-          >
-            {isDark ? <SunIcon /> : <MoonIcon />}
-          </button>
+            <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+              {NAV_ITEMS.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    style={{
+                      color: fgColor,
+                      textDecoration: 'none',
+                      fontSize: '0.78rem',
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      opacity: 0.65,
+                      transition: 'opacity 0.2s',
+                    }}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '1')}
+                    onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.65')}>
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <button type="button" className="theme-toggle" aria-label={isDark ? 'ライトモードに切り替える' : 'ダークモードに切り替える'} title={isDark ? 'Light mode' : 'Dark mode'} onClick={toggleTheme} style={themeToggleStyle(fgColor)}>
+              {isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
           </div>
         </nav>
 
@@ -180,8 +169,7 @@ export default function HomePage() {
             padding: '0 3rem',
             maxWidth: '900px',
             margin: '0 auto',
-          }}
-        >
+          }}>
           <p
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
@@ -190,8 +178,7 @@ export default function HomePage() {
               textTransform: 'uppercase',
               opacity: 0.5,
               marginBottom: '1.5rem',
-            }}
-          >
+            }}>
             Luca "Taigo Nagata"
           </p>
           <h1
@@ -202,13 +189,10 @@ export default function HomePage() {
               lineHeight: 1.05,
               margin: '0 0 2rem',
               letterSpacing: '-0.01em',
-            }}
-          >
+            }}>
             Create with
             <br />
-            <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>
-              Consideration & Passion.
-            </em>
+            <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>Consideration & Passion.</em>
           </h1>
           <p
             style={{
@@ -217,8 +201,7 @@ export default function HomePage() {
               fontSize: 'clamp(0.9rem, 1.2vw, 1rem)',
               opacity: 0.7,
               marginBottom: '3rem',
-            }}
-          >
+            }}>
             More helpful, more hopeful.　現状に甘んじることなく、常に向上していきたいと考えています。
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -243,11 +226,8 @@ export default function HomePage() {
               alignItems: 'center',
               gap: '0.5rem',
               opacity: 1,
-            }}
-          >
-            <span style={{ fontSize: '0.65rem', letterSpacing: '0.25em', opacity: 0.4 }}>
-              SCROLL
-            </span>
+            }}>
+            <span style={{ fontSize: '0.65rem', letterSpacing: '0.25em', opacity: 0.4 }}>SCROLL</span>
             <div
               style={{
                 width: '1px',
@@ -271,17 +251,10 @@ export default function HomePage() {
               gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
               gap: '4rem',
               marginTop: '3rem',
-            }}
-          >
+            }}>
             <div>
-              <p style={bodyTextStyle}>
-                フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで一貫して設計・実装できます。
-                Next.jsとPythonを主軸に、データ基盤からUIまで「ユーザーの課題解決」を起点に技術選定を行います。
-              </p>
-              <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}>
-                コードは手段であり、最終目標は「使われ、価値を生む」プロダクトです。
-                チームの中では、設計の議論を積極的に起こしつつ、合意後は迅速に実行に移す姿勢を大切にしています。
-              </p>
+              <p style={bodyTextStyle}>フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで一貫して設計・実装できます。 Next.jsとPythonを主軸に、データ基盤からUIまで「ユーザーの課題解決」を起点に技術選定を行います。</p>
+              <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}>コードは手段であり、最終目標は「使われ、価値を生む」プロダクトです。 チームの中では、設計の議論を積極的に起こしつつ、合意後は迅速に実行に移す姿勢を大切にしています。</p>
             </div>
             <div>
               <h3 style={h3Style}>モノづくりの姿勢</h3>
@@ -300,13 +273,10 @@ export default function HomePage() {
                         textTransform: 'uppercase',
                         opacity: 0.45,
                         marginBottom: '0.3rem',
-                      }}
-                    >
+                      }}>
                       {title as string}
                     </span>
-                    <span style={{ fontSize: '0.9rem', lineHeight: 1.75, opacity: 0.75 }}>
-                      {desc as string}
-                    </span>
+                    <span style={{ fontSize: '0.9rem', lineHeight: 1.75, opacity: 0.75 }}>{desc as string}</span>
                   </li>
                 ))}
               </ul>
@@ -326,8 +296,7 @@ export default function HomePage() {
               gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
               gap: '1.5rem',
               marginTop: '3rem',
-            }}
-          >
+            }}>
             {WORKS.map((w, i) => (
               <article
                 key={i}
@@ -340,15 +309,14 @@ export default function HomePage() {
                   position: 'relative',
                   overflow: 'hidden',
                 }}
-                onMouseEnter={e => {
+                onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = `rgba(201,168,76,0.5)`;
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
                 }}
-                onMouseLeave={e => {
+                onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = `rgba(${fgR},${fgG},${fgB},0.12)`;
                   (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                }}
-              >
+                }}>
                 {/* gold corner accent */}
                 <div
                   aria-hidden
@@ -363,7 +331,7 @@ export default function HomePage() {
                 />
                 <h3 style={{ ...h3Style, marginBottom: '0.75rem' }}>{w.title}</h3>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-                  {w.tags.map(tag => (
+                  {w.tags.map((tag) => (
                     <span
                       key={tag}
                       style={{
@@ -373,8 +341,7 @@ export default function HomePage() {
                         border: `1px solid rgba(${fgR},${fgG},${fgB},0.2)`,
                         borderRadius: '1px',
                         opacity: 0.6,
-                      }}
-                    >
+                      }}>
                       {tag}
                     </span>
                   ))}
@@ -386,8 +353,7 @@ export default function HomePage() {
                     color: `rgba(201,168,76,${0.8 + t * 0.2})`,
                     marginBottom: '0.75rem',
                     fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
+                  }}>
                   {w.metrics}
                 </p>
                 <p style={{ ...bodyTextStyle, fontSize: '0.875rem' }}>{w.desc}</p>
@@ -402,10 +368,7 @@ export default function HomePage() {
         <section id="process" style={sectionStyle}>
           <SectionEyebrow label="III." color={fgColor} />
           <h2 style={h2Style}>Development Process</h2>
-          <p style={{ ...bodyTextStyle, maxWidth: '560px', marginTop: '1.5rem', marginBottom: '3.5rem' }}>
-            「なぜ作るか」から始まり、技術選定・設計・実装・改善サイクルまでの思考プロセスを公開します。
-            各Workの詳細ページで、意思決定の理由と学びを余すことなく記述しています。
-          </p>
+          <p style={{ ...bodyTextStyle, maxWidth: '560px', marginTop: '1.5rem', marginBottom: '3.5rem' }}>「なぜ作るか」から始まり、技術選定・設計・実装・改善サイクルまでの思考プロセスを公開します。 各Workの詳細ページで、意思決定の理由と学びを余すことなく記述しています。</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {[
               ['Define', '課題の定義', 'ユーザー観察と定量データから「本当に解くべき問題」を絞り込む。'],
@@ -421,11 +384,8 @@ export default function HomePage() {
                   gap: '2rem',
                   paddingBottom: i < arr.length - 1 ? '2.5rem' : 0,
                   marginBottom: i < arr.length - 1 ? '2.5rem' : 0,
-                  borderBottom: i < arr.length - 1
-                    ? `1px solid rgba(${fgR},${fgG},${fgB},0.1)`
-                    : 'none',
-                }}
-              >
+                  borderBottom: i < arr.length - 1 ? `1px solid rgba(${fgR},${fgG},${fgB},0.1)` : 'none',
+                }}>
                 <div style={{ textAlign: 'right', paddingTop: '0.15rem' }}>
                   <span
                     style={{
@@ -434,8 +394,7 @@ export default function HomePage() {
                       letterSpacing: '0.2em',
                       opacity: 0.35,
                       textTransform: 'uppercase',
-                    }}
-                  >
+                    }}>
                     {step as string}
                   </span>
                 </div>
@@ -460,8 +419,7 @@ export default function HomePage() {
               gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
               gap: '3rem',
               marginTop: '3rem',
-            }}
-          >
+            }}>
             {SKILLS.map(({ group, items }) => (
               <div key={group}>
                 <h3
@@ -472,12 +430,11 @@ export default function HomePage() {
                     textTransform: 'uppercase',
                     opacity: 0.4,
                     marginBottom: '1.25rem',
-                  }}
-                >
+                  }}>
                   {group}
                 </h3>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                  {items.map(item => (
+                  {items.map((item) => (
                     <li
                       key={item}
                       style={{
@@ -486,8 +443,7 @@ export default function HomePage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '0.75rem',
-                      }}
-                    >
+                      }}>
                       <span
                         style={{
                           width: '4px',
@@ -520,20 +476,18 @@ export default function HomePage() {
             borderTop: `1px solid rgba(${fgR},${fgG},${fgB},0.1)`,
             flexWrap: 'wrap',
             gap: '1rem',
-          }}
-        >
+          }}>
           <span
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: '0.8rem',
               letterSpacing: '0.15em',
               opacity: 0.4,
-            }}
-          >
+            }}>
             © 2025 Portfolio
           </span>
           <div style={{ display: 'flex', gap: '2rem' }}>
-            {['GitHub', 'LinkedIn', 'Contact'].map(label => (
+            {['GitHub', 'LinkedIn', 'Contact'].map((label) => (
               <a
                 key={label}
                 href="https://github.com/luminous-luca-dev"
@@ -545,9 +499,8 @@ export default function HomePage() {
                   opacity: 0.45,
                   transition: 'opacity 0.2s',
                 }}
-                onMouseEnter={e => ((e.target as HTMLElement).style.opacity = '0.9')}
-                onMouseLeave={e => ((e.target as HTMLElement).style.opacity = '0.45')}
-              >
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.9')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.45')}>
                 {label}
               </a>
             ))}
@@ -570,8 +523,7 @@ function SectionEyebrow({ label, color }: { label: string; color: string }) {
         opacity: 0.35,
         marginBottom: '0.75rem',
         color,
-      }}
-    >
+      }}>
       {label}
     </span>
   );

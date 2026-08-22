@@ -25,8 +25,7 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: 'Portfolio — Software Engineer',
-  description:
-    'フルスタックエンジニアのポートフォリオ。Next.js・TypeScript・Pythonを軸に、ユーザーに届くプロダクトを作ります。',
+  description: 'フルスタックエンジニアのポートフォリオ。Next.js・TypeScript・Pythonを軸に、ユーザーに届くプロダクトを作ります。',
   openGraph: {
     title: 'Portfolio — Software Engineer',
     description: 'Build with Craft & Logic.',
@@ -36,10 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="ja"
-      className={`${playfair.variable} ${inter.variable} ${notoSansJP.variable}`}
-    >
+    <html lang="ja" className={`${playfair.variable} ${inter.variable} ${notoSansJP.variable}`}>
       <body>{children}</body>
     </html>
   );

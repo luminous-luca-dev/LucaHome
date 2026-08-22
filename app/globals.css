@@ -3,24 +3,26 @@
 /* ── CSS Custom Properties ─────────────────────────────── */
 :root {
   /* Day palette */
-  --color-cream:       #F5F0E8;
-  --color-ink:         #1A1610;
-  --color-gold:        #C9A84C;
-  --color-gold-light:  #E8C96A;
-  --color-gold-dark:   #A07828;
-  --color-marble:      #8B7355;
+  --color-cream: #f5f0e8;
+  --color-ink: #1a1610;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8c96a;
+  --color-gold-dark: #a07828;
+  --color-marble: #8b7355;
 
   /* Night palette */
-  --color-night:       #0D0C0A;
-  --color-night-text:  #EDE8DE;
+  --color-night: #0d0c0a;
+  --color-night-text: #ede8de;
 
   /* Type scale */
   --font-playfair: var(--font-playfair);
-  --font-sans:     var(--font-inter), var(--font-noto), system-ui, sans-serif;
+  --font-sans: var(--font-inter), var(--font-noto), system-ui, sans-serif;
 }
 
 /* ── Reset ─────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -65,7 +67,9 @@ body {
 
 /* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

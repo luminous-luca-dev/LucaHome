@@ -42,14 +42,8 @@ export default function ScrollBackground({ isDark }: Props) {
         zIndex: 1,
         pointerEvents: 'none',
         overflow: 'hidden',
-      }}
-    >
-      <svg
-        viewBox="0 0 1000 1000"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
-        preserveAspectRatio="xMidYMid slice"
-      >
+      }}>
+      <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }} preserveAspectRatio="xMidYMid slice">
         <defs>
           {/* Radial gold glow */}
           <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
@@ -82,63 +76,24 @@ export default function ScrollBackground({ isDark }: Props) {
 
         {/* ── Star field (fades in at night) ── */}
         {STARS.map(([cx, cy, r], i) => (
-          <circle
-            key={i}
-            cx={cx}
-            cy={cy}
-            r={r}
-            fill="#EDE8DE"
-            opacity={starOpacity * (0.4 + (i % 5) * 0.12)}
-          />
+          <circle key={i} cx={cx} cy={cy} r={r} fill="#EDE8DE" opacity={starOpacity * (0.4 + (i % 5) * 0.12)} />
         ))}
 
         {/* ── Outermost rotating ring ── */}
-        <g
-          transform={`rotate(${orbRotation}, 500, 500)`}
-          opacity={ringOpacity}
-        >
-          <circle
-            cx="500"
-            cy="500"
-            r="380"
-            fill="none"
-            stroke="#C9A84C"
-            strokeWidth="0.5"
-            strokeDasharray="4 18"
-          />
+        <g transform={`rotate(${orbRotation}, 500, 500)`} opacity={ringOpacity}>
+          <circle cx="500" cy="500" r="380" fill="none" stroke="#C9A84C" strokeWidth="0.5" strokeDasharray="4 18" />
           {/* Tick marks around ring */}
           {Array.from({ length: 24 }).map((_, i) => {
             const angle = (i / 24) * 2 * Math.PI;
             const r1 = 378;
             const r2 = i % 6 === 0 ? 368 : 373;
-            return (
-              <line
-                key={i}
-                x1={500 + r1 * Math.cos(angle)}
-                y1={500 + r1 * Math.sin(angle)}
-                x2={500 + r2 * Math.cos(angle)}
-                y2={500 + r2 * Math.sin(angle)}
-                stroke="#C9A84C"
-                strokeWidth={i % 6 === 0 ? '1.2' : '0.6'}
-              />
-            );
+            return <line key={i} x1={500 + r1 * Math.cos(angle)} y1={500 + r1 * Math.sin(angle)} x2={500 + r2 * Math.cos(angle)} y2={500 + r2 * Math.sin(angle)} stroke="#C9A84C" strokeWidth={i % 6 === 0 ? '1.2' : '0.6'} />;
           })}
         </g>
 
         {/* ── Middle ring (counter-rotation) ── */}
-        <g
-          transform={`rotate(${-orbRotation * 0.6}, 500, 500)`}
-          opacity={ringOpacity * 1.5}
-        >
-          <circle
-            cx="500"
-            cy="500"
-            r="290"
-            fill="none"
-            stroke="#C9A84C"
-            strokeWidth="0.4"
-            strokeDasharray="2 24"
-          />
+        <g transform={`rotate(${-orbRotation * 0.6}, 500, 500)`} opacity={ringOpacity * 1.5}>
+          <circle cx="500" cy="500" r="290" fill="none" stroke="#C9A84C" strokeWidth="0.4" strokeDasharray="2 24" />
         </g>
 
         {/* ── Celestial orb group (rotates with scroll) ── */}
@@ -150,18 +105,7 @@ export default function ScrollBackground({ isDark }: Props) {
               const angle = (i / 12) * 2 * Math.PI;
               const r1 = 36;
               const r2 = i % 3 === 0 ? 58 : 46;
-              return (
-                <line
-                  key={i}
-                  x1={r1 * Math.cos(angle)}
-                  y1={r1 * Math.sin(angle)}
-                  x2={r2 * Math.cos(angle)}
-                  y2={r2 * Math.sin(angle)}
-                  stroke="#C9A84C"
-                  strokeWidth={i % 3 === 0 ? '1.2' : '0.7'}
-                  opacity="0.55"
-                />
-              );
+              return <line key={i} x1={r1 * Math.cos(angle)} y1={r1 * Math.sin(angle)} x2={r2 * Math.cos(angle)} y2={r2 * Math.sin(angle)} stroke="#C9A84C" strokeWidth={i % 3 === 0 ? '1.2' : '0.7'} opacity="0.55" />;
             })}
             {/* Sun core */}
             <circle cx="0" cy="0" r="32" fill="#C9A84C" opacity="0.15" />
@@ -174,14 +118,9 @@ export default function ScrollBackground({ isDark }: Props) {
             {/* Full circle */}
             <circle cx="0" cy="0" r="42" fill="#C9A84C" opacity="0.18" />
             {/* Crescent cutout */}
-            <circle cx="16" cy="-8" r="36" fill="transparent"
-              style={{ mixBlendMode: 'multiply' }} />
+            <circle cx="16" cy="-8" r="36" fill="transparent" style={{ mixBlendMode: 'multiply' }} />
             {/* Drawn crescent arc */}
-            <path
-              d="M -28,-20 Q -55,0 -28,22 Q -10,32 10,28 Q -30,10 -28,-20 Z"
-              fill="#C9A84C"
-              opacity="0.45"
-            />
+            <path d="M -28,-20 Q -55,0 -28,22 Q -10,32 10,28 Q -30,10 -28,-20 Z" fill="#C9A84C" opacity="0.45" />
           </g>
         </g>
 
@@ -207,15 +146,7 @@ export default function ScrollBackground({ isDark }: Props) {
         </g>
 
         {/* ── Inner circle frame around balance ── */}
-        <circle
-          cx="500"
-          cy="500"
-          r="160"
-          fill="none"
-          stroke="#C9A84C"
-          strokeWidth="0.4"
-          opacity={0.08 + t * 0.1}
-        />
+        <circle cx="500" cy="500" r="160" fill="none" stroke="#C9A84C" strokeWidth="0.4" opacity={0.08 + t * 0.1} />
       </svg>
     </div>
   );
@@ -223,11 +154,39 @@ export default function ScrollBackground({ isDark }: Props) {
 
 // Pseudo-random star positions (deterministic so SSR matches)
 const STARS: [number, number, number][] = [
-  [80, 120, 1.2], [150, 60, 0.8], [230, 180, 1.5], [310, 90, 0.9], [420, 50, 1.1],
-  [550, 80, 0.7], [660, 140, 1.3], [740, 70, 1.0], [820, 110, 0.8], [900, 50, 1.4],
-  [950, 200, 0.9], [930, 350, 1.2], [880, 480, 0.7], [940, 620, 1.1], [900, 750, 0.8],
-  [820, 870, 1.3], [700, 940, 0.9], [560, 960, 1.2], [400, 920, 0.7], [260, 880, 1.0],
-  [130, 800, 1.4], [60, 680, 0.8], [40, 550, 1.1], [70, 400, 0.9], [50, 260, 1.2],
-  [180, 380, 0.6], [300, 280, 0.9], [450, 160, 0.7], [620, 220, 1.0], [770, 290, 0.8],
-  [860, 380, 0.7], [750, 460, 0.5], [650, 380, 0.8], [340, 440, 0.6], [190, 500, 0.7],
+  [80, 120, 1.2],
+  [150, 60, 0.8],
+  [230, 180, 1.5],
+  [310, 90, 0.9],
+  [420, 50, 1.1],
+  [550, 80, 0.7],
+  [660, 140, 1.3],
+  [740, 70, 1.0],
+  [820, 110, 0.8],
+  [900, 50, 1.4],
+  [950, 200, 0.9],
+  [930, 350, 1.2],
+  [880, 480, 0.7],
+  [940, 620, 1.1],
+  [900, 750, 0.8],
+  [820, 870, 1.3],
+  [700, 940, 0.9],
+  [560, 960, 1.2],
+  [400, 920, 0.7],
+  [260, 880, 1.0],
+  [130, 800, 1.4],
+  [60, 680, 0.8],
+  [40, 550, 1.1],
+  [70, 400, 0.9],
+  [50, 260, 1.2],
+  [180, 380, 0.6],
+  [300, 280, 0.9],
+  [450, 160, 0.7],
+  [620, 220, 1.0],
+  [770, 290, 0.8],
+  [860, 380, 0.7],
+  [750, 460, 0.5],
+  [650, 380, 0.8],
+  [340, 440, 0.6],
+  [190, 500, 0.7],
 ];

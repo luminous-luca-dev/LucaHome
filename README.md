@@ -58,12 +58,12 @@ npx serve out
 
 Cloudflare Dashboard の **Workers & Pages** → **Create application** → **Pages** → **Connect to Git** から、このリポジトリを選択し、次の値を設定します。
 
-| 項目 | 値 |
-|---|---|
-| Framework preset | `Next.js (Static HTML Export)` |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Node.js version | `20` |
+| 項目                   | 値                             |
+| ---------------------- | ------------------------------ |
+| Framework preset       | `Next.js (Static HTML Export)` |
+| Build command          | `npm run build`                |
+| Build output directory | `out`                          |
+| Node.js version        | `20`                           |
 
 保存すると、Git push のたびに自動デプロイされます。独自ドメインは Pages プロジェクトの **Custom domains** から追加できます。
 
@@ -79,14 +79,14 @@ Wrangler の初回実行時は Cloudflare へのログインとプロジェク�
 
 ## 実装済み機能
 
-| 機能 | 実装 |
-|---|---|
-| ローディング画面 円環タイムバー | `LoadingScreen.tsx` — 3層同心円環 + 進行arc |
-| スクロール連動昼夜トランジション | `page.tsx` scrollRatio → `rgb()` 補間 |
-| 天体・天秤・円環グラフィック | `ScrollBackground.tsx` — SVG固定背景 |
-| 大理石テクスチャオーバーレイ | `page.tsx` + `LoadingScreen.tsx` — SVG feTurbulence |
-| レスポンシブレイアウト | `globals.css` media queries |
-| Playfair Display セリフ体 | `layout.tsx` Next.js Font最適化 |
+| 機能                             | 実装                                                |
+| -------------------------------- | --------------------------------------------------- |
+| ローディング画面 円環タイムバー  | `LoadingScreen.tsx` — 3層同心円環 + 進行arc         |
+| スクロール連動昼夜トランジション | `page.tsx` scrollRatio → `rgb()` 補間               |
+| 天体・天秤・円環グラフィック     | `ScrollBackground.tsx` — SVG固定背景                |
+| 大理石テクスチャオーバーレイ     | `page.tsx` + `LoadingScreen.tsx` — SVG feTurbulence |
+| レスポンシブレイアウト           | `globals.css` media queries                         |
+| Playfair Display セリフ体        | `layout.tsx` Next.js Font最適化                     |
 
 ## カラーシステム
 
