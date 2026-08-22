@@ -65,6 +65,73 @@ body {
   transform: rotate(12deg);
 }
 
+.work-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 2rem;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--work-border, rgba(26, 22, 16, 0.12));
+  border-radius: 2px;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.work-card:hover {
+  border-color: rgba(201, 168, 76, 0.55);
+  transform: translateY(-3px);
+  background-color: rgba(201, 168, 76, 0.04);
+}
+
+.work-card h3,
+.work-card p,
+.work-card > div:not(.work-card-accent) {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.work-card h3 {
+  margin-top: 1.75rem;
+}
+
+.work-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 32px;
+  height: 2px;
+}
+
+.work-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  margin: 0 !important;
+  overflow: hidden;
+  color: rgba(201, 168, 76, 0.7);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.14), rgba(26, 22, 16, 0.08));
+  border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+}
+
+.work-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.work-card:hover .work-preview img {
+  transform: scale(1.035);
+}
+
 /* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -88,13 +155,52 @@ body {
   nav {
     padding: 1rem 1.5rem !important;
   }
+  nav > div {
+    gap: 1.25rem !important;
+  }
   nav ul {
     gap: 1.5rem !important;
   }
 }
 
 @media (max-width: 480px) {
+  nav {
+    align-items: flex-start !important;
+  }
+  nav > div {
+    gap: 0.6rem !important;
+  }
+  nav ul {
+    gap: 0.7rem !important;
+  }
   nav ul li a {
     font-size: 0.7rem;
+  }
+  nav > span {
+    max-width: 7rem;
+    font-size: 0.8rem !important;
+    line-height: 1.2;
+  }
+  .theme-toggle {
+    width: 2rem !important;
+    height: 2rem !important;
+    flex: 0 0 auto;
+  }
+  .work-card h3,
+  .work-card p,
+  .work-card > div:not(.work-card-accent) {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  nav ul li a {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+  nav > span {
+    max-width: 5.5rem;
+    font-size: 0.7rem !important;
   }
 }

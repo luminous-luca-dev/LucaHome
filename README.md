@@ -41,6 +41,10 @@ npx serve vanilla
 
 `vanilla/` の構成は `index.html`・`styles.css`・`svg.css`・`script.js` です。ローディング画面、スクロール連動の昼夜テーマ、天体・天秤 SVG 背景、ナビゲーション、カードのホバー表示を VanillaJS で再現しています。
 
+### Works の URL とプレビュー画像
+
+通常版の Works は `app/page.tsx` の `WORKS` 配列で管理しています。各項目の `href` を実際の URL に変更するとカード全体が別タブで開き、`public/works/` に画像を置いて `image` に `/works/ファイル名.png` のように指定するとプレビュー画像が表示されます。`image` が空の場合はプレースホルダーが表示されます。
+
 ## Cloudflare Pages へのデプロイ
 
 このサイトは静的書き出しに対応しているため、Cloudflare Pages の Git 連携でデプロイできます。

@@ -13,6 +13,7 @@ interface Props {
  */
 export default function ScrollBackground({ isDark }: Props) {
   const t = isDark ? 1 : 0;
+  const round = (value: number) => Number(value.toFixed(6));
 
   // Central orb moves from the day position to the night position.
   const orbRotation = t * 180;
@@ -79,7 +80,7 @@ export default function ScrollBackground({ isDark }: Props) {
             const angle = (i / 24) * 2 * Math.PI;
             const r1 = 378;
             const r2 = i % 6 === 0 ? 368 : 373;
-            return <line key={i} x1={500 + r1 * Math.cos(angle)} y1={500 + r1 * Math.sin(angle)} x2={500 + r2 * Math.cos(angle)} y2={500 + r2 * Math.sin(angle)} stroke="#C9A84C" strokeWidth={i % 6 === 0 ? '1.2' : '0.6'} />;
+            return <line key={i} x1={round(500 + r1 * Math.cos(angle))} y1={round(500 + r1 * Math.sin(angle))} x2={round(500 + r2 * Math.cos(angle))} y2={round(500 + r2 * Math.sin(angle))} stroke="#C9A84C" strokeWidth={i % 6 === 0 ? '1.2' : '0.6'} />;
           })}
         </g>
 
@@ -97,7 +98,7 @@ export default function ScrollBackground({ isDark }: Props) {
               const angle = (i / 12) * 2 * Math.PI;
               const r1 = 36;
               const r2 = i % 3 === 0 ? 58 : 46;
-              return <line key={i} x1={r1 * Math.cos(angle)} y1={r1 * Math.sin(angle)} x2={r2 * Math.cos(angle)} y2={r2 * Math.sin(angle)} stroke="#C9A84C" strokeWidth={i % 3 === 0 ? '1.2' : '0.7'} opacity="0.55" />;
+              return <line key={i} x1={round(r1 * Math.cos(angle))} y1={round(r1 * Math.sin(angle))} x2={round(r2 * Math.cos(angle))} y2={round(r2 * Math.sin(angle))} stroke="#C9A84C" strokeWidth={i % 3 === 0 ? '1.2' : '0.7'} opacity="0.55" />;
             })}
             {/* Sun core */}
             <circle cx="0" cy="0" r="32" fill="#C9A84C" opacity="0.15" />

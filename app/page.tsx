@@ -13,9 +13,9 @@ const NAV_ITEMS = [
 ];
 
 const WORKS = [
-  { title: '加賀美インダストリアル非公式ファンサイト', tags: ['VanillaJS', 'supabase'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。' },
-  { title: 'Browser Game', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
-  { title: 'Analytics Dashboard', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
+  { title: '加賀美インダストリアル非公式ファンサイト', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', tags: ['VanillaJS', 'supabase'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。' },
+  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev/', image: '/works/chat-ngt.png', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
+  { title: 'Analytics Dashboard', href: 'https://github.com/luminous-luca-dev', image: '/works/analytics-dashboard.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
 ];
 
 const SKILLS = [
@@ -160,20 +160,11 @@ export default function HomePage() {
           <SectionEyebrow label="II." color={fgColor} />
           <h2 style={h2Style}>Works</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '3rem' }}>
-            {WORKS.map((w, i) => (
-              <article
-                key={i}
-                style={{ padding: '2rem', border: `1px solid rgba(${fgR},${fgG},${fgB},0.12)`, borderRadius: '2px', transition: 'border-color 0.2s, transform 0.2s', cursor: 'default', position: 'relative', overflow: 'hidden' }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = `rgba(201,168,76,0.5)`;
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = `rgba(${fgR},${fgG},${fgB},0.12)`;
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                }}>
+            {WORKS.map((w) => (
+              <a key={w.title} href={w.href} target="_blank" rel="noreferrer" className="work-card" style={{ '--work-border': `rgba(${fgR},${fgG},${fgB},0.12)` } as React.CSSProperties}>
                 {/* gold corner accent */}
-                <div aria-hidden style={{ position: 'absolute', top: 0, left: 0, width: '32px', height: '2px', background: `rgba(201,168,76,${goldOpacity})` }} />
+                <div aria-hidden className="work-card-accent" style={{ background: `rgba(201,168,76,${goldOpacity})` }} />
+                <div className="work-preview">{w.image ? <img src={w.image} alt={`${w.title} のプレビュー`} /> : <span>PROJECT PREVIEW</span>}</div>
                 <h3 style={{ ...h3Style, marginBottom: '0.75rem' }}>{w.title}</h3>
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
                   {w.tags.map((tag) => (
@@ -184,7 +175,7 @@ export default function HomePage() {
                 </div>
                 <p style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: `rgba(201,168,76,${0.8 + t * 0.2})`, marginBottom: '0.75rem', fontVariantNumeric: 'tabular-nums' }}>{w.metrics}</p>
                 <p style={{ ...bodyTextStyle, fontSize: '0.875rem' }}>{w.desc}</p>
-              </article>
+              </a>
             ))}
           </div>
         </section>

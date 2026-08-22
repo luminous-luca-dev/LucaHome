@@ -4,7 +4,7 @@
   "tabWidth": 2,
   "useTabs": false,
   "trailingComma": "es5",
-  "printWidth": 1000,
+  "printWidth": 1500,
   "objectWrap": "collapse",
   "bracketSameLine": true,
   "htmlWhitespaceSensitivity": "ignore"
