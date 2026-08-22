@@ -30,6 +30,42 @@ npm run dev
 # → http://localhost:3000
 ```
 
+## Cloudflare Pages へのデプロイ
+
+このサイトは静的書き出しに対応しているため、Cloudflare Pages の Git 連携でデプロイできます。
+
+### ローカルで確認
+
+```bash
+npm install
+npm run build
+npx serve out
+# → http://localhost:3000
+```
+
+### Cloudflare Pages の設定
+
+Cloudflare Dashboard の **Workers & Pages** → **Create application** → **Pages** → **Connect to Git** から、このリポジトリを選択し、次の値を設定します。
+
+| 項目 | 値 |
+|---|---|
+| Framework preset | `Next.js (Static HTML Export)` |
+| Build command | `npm run build` |
+| Build output directory | `out` |
+| Node.js version | `20` |
+
+保存すると、Git push のたびに自動デプロイされます。独自ドメインは Pages プロジェクトの **Custom domains** から追加できます。
+
+### Git を使わない場合
+
+```bash
+npm install
+npm run build
+npx wrangler pages deploy out --project-name <project-name>
+```
+
+Wrangler の初回実行時は Cloudflare へのログインとプロジェクト作成を求められます。
+
 ## 実装済み機能
 
 | 機能 | 実装 |
