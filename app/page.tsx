@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoadingScreen from './LoadingScreen';
 import ScrollBackground from './ScrollBackground';
 
@@ -43,46 +43,41 @@ const SKILLS = [
 // ─── Main page ───────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
-  const [scrollRatio, setScrollRatio] = useState(0); // 0 = top (day), 1 = bottom (night)
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [isDark, setIsDark] = useState(false);
 
-  // Scroll listener
   useEffect(() => {
-    const handleScroll = () => {
-      const el = document.documentElement;
-      const ratio = el.scrollTop / (el.scrollHeight - el.clientHeight);
-      setScrollRatio(isNaN(ratio) ? 0 : Math.min(1, Math.max(0, ratio)));
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const savedTheme = window.localStorage.getItem('luca-theme');
+    if (savedTheme === 'dark') setIsDark(true);
   }, []);
 
-  // Derived theme values (interpolated)
-  // day: cream bg #F5F0E8, ink text #1A1610
-  // night: ink bg #0D0C0A, cream text #EDE8DE
-  const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-  const t = scrollRatio;
-
-  const bgR = Math.round(lerp(245, 13, t));
-  const bgG = Math.round(lerp(240, 12, t));
-  const bgB = Math.round(lerp(232, 10, t));
-  const fgR = Math.round(lerp(26, 237, t));
-  const fgG = Math.round(lerp(22, 232, t));
-  const fgB = Math.round(lerp(16, 222, t));
+  const t = isDark ? 1 : 0;
+  const bgR = isDark ? 13 : 245;
+  const bgG = isDark ? 12 : 240;
+  const bgB = isDark ? 10 : 232;
+  const fgR = isDark ? 237 : 26;
+  const fgG = isDark ? 232 : 22;
+  const fgB = isDark ? 222 : 16;
   const bgColor = `rgb(${bgR},${bgG},${bgB})`;
   const fgColor = `rgb(${fgR},${fgG},${fgB})`;
   const goldOpacity = 0.15 + t * 0.45; // gold accent becomes richer at night
+
+  const toggleTheme = () => {
+    setIsDark(current => {
+      const next = !current;
+      window.localStorage.setItem('luca-theme', next ? 'dark' : 'light');
+      return next;
+    });
+  };
 
   return (
     <>
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       <div
-        ref={containerRef}
         style={{
           backgroundColor: bgColor,
           color: fgColor,
-          transition: 'background-color 0.05s linear, color 0.05s linear',
+          transition: 'background-color 0.45s ease, color 0.45s ease',
           minHeight: '100vh',
           fontFamily: "'Inter', 'Noto Sans JP', sans-serif",
         }}
@@ -104,7 +99,7 @@ export default function HomePage() {
         />
 
         {/* ── Celestial / Scroll Background ── */}
-        <ScrollBackground scrollRatio={scrollRatio} fgColor={fgColor} goldOpacity={goldOpacity} />
+        <ScrollBackground isDark={isDark} />
 
         {/* ── Navigation ── */}
         <nav
@@ -133,6 +128,7 @@ export default function HomePage() {
           >
             Luca's PORTFOLIO
           </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
           <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
             {NAV_ITEMS.map(({ label, href }) => (
               <li key={label}>
@@ -155,6 +151,17 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+          <button
+            type="button"
+            className="theme-toggle"
+            aria-label={isDark ? 'ライトモードに切り替える' : 'ダークモードに切り替える'}
+            title={isDark ? 'Light mode' : 'Dark mode'}
+            onClick={toggleTheme}
+            style={themeToggleStyle(fgColor)}
+          >
+            {isDark ? <SunIcon /> : <MoonIcon />}
+          </button>
+          </div>
         </nav>
 
         {/* ════════════════════════════════════════
@@ -235,7 +242,7 @@ export default function HomePage() {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '0.5rem',
-              opacity: Math.max(0, 1 - scrollRatio * 4),
+              opacity: 1,
             }}
           >
             <span style={{ fontSize: '0.65rem', letterSpacing: '0.25em', opacity: 0.4 }}>
@@ -624,7 +631,40 @@ const ghostBtnStyle = (fg: string): React.CSSProperties => ({
   fontSize: '0.78rem',
   letterSpacing: '0.18em',
   textTransform: 'uppercase',
-  border: `1px solid rgba(0,0,0,0.15)`,
+  border: `1px solid rgba(${fg === 'rgb(237,232,222)' ? '237,232,222' : '26,22,16'},0.2)`,
   borderRadius: '1px',
   transition: 'opacity 0.2s',
 });
+
+const themeToggleStyle = (fg: string): React.CSSProperties => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '2.25rem',
+  height: '2.25rem',
+  padding: 0,
+  color: fg,
+  background: 'transparent',
+  border: `1px solid ${fg === 'rgb(237,232,222)' ? 'rgba(237,232,222,0.24)' : 'rgba(26,22,16,0.2)'}`,
+  borderRadius: '50%',
+  cursor: 'pointer',
+  transition: 'color 0.45s ease, border-color 0.45s ease, transform 0.2s ease',
+});
+
+function MoonIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M17.5 5.5h.01M19 8h.01" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function SunIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M12 2.5v2M12 19.5v2M4.58 4.58l1.42 1.42M18 18l1.42 1.42M2.5 12h2M19.5 12h2M4.58 19.42 6 18M18 6l1.42-1.42" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}

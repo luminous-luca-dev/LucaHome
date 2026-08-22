@@ -59,6 +59,10 @@ body {
   outline-offset: 3px;
 }
 
+.theme-toggle:hover {
+  transform: rotate(12deg);
+}
+
 /* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

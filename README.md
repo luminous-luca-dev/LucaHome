@@ -30,6 +30,17 @@ npm run dev
 # → http://localhost:3000
 ```
 
+## VanillaJS 版
+
+Next.js に依存しないコピーを `vanilla/` に用意しています。`vanilla/index.html` をブラウザで直接開くか、プロジェクトのルートで次のコマンドを実行してください。
+
+```bash
+npx serve vanilla
+# → http://localhost:3000
+```
+
+`vanilla/` の構成は `index.html`・`styles.css`・`svg.css`・`script.js` です。ローディング画面、スクロール連動の昼夜テーマ、天体・天秤 SVG 背景、ナビゲーション、カードのホバー表示を VanillaJS で再現しています。
+
 ## Cloudflare Pages へのデプロイ
 
 このサイトは静的書き出しに対応しているため、Cloudflare Pages の Git 連携でデプロイできます。

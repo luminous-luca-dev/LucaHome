@@ -1,33 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-
 interface Props {
-  scrollRatio: number;
-  fgColor: string;
-  goldOpacity: number;
+  isDark: boolean;
 }
 
 /**
  * ScrollBackground
  * ──────────────────────────────────────────────────────────────
- * Fixed, full-viewport SVG that animates from "day" (sun + balance scale)
- * to "night" (moon + constellation ring) as the user scrolls.
+ * Fixed, full-viewport SVG that switches between day and night motifs.
  *
  * Astronomy motifs per spec: 天体・天秤・円環
  */
-export default function ScrollBackground({ scrollRatio, fgColor, goldOpacity }: Props) {
-  // ▼▼▼ 追加: マウント状態を管理 ▼▼▼
-  const [isMounted, setIsMounted] = useState(false);
+export default function ScrollBackground({ isDark }: Props) {
+  const t = isDark ? 1 : 0;
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  // ▲▲▲ ここまで ▲▲▲
-
-  const t = scrollRatio;
-
-  // Central orb: rotates 180° from day-sun to night-moon position
+  // Central orb moves from the day position to the night position.
   const orbRotation = t * 180;
 
   // Outer ring opacity (more visible at night)
@@ -45,12 +32,6 @@ export default function ScrollBackground({ scrollRatio, fgColor, goldOpacity }: 
   // Sun rays fade out, moon crescent fades in
   const sunOpacity = Math.max(0, 1 - t * 3);
   const moonOpacity = Math.max(0, t * 2 - 0.8);
-
-  // ▼▼▼ 追加: マウントされるまでは何も表示しない ▼▼▼
-  if (!isMounted) {
-    return null; // このコンポーネントは背景なので null でOK
-  }
-  // ▲▲▲ ここまで ▲▲▲
 
   return (
     <div
