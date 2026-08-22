@@ -88,7 +88,7 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
 
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F5F0E8', opacity: phase === 'fading' ? 0 : 1, transition: phase === 'fading' ? 'opacity 0.6s ease-out' : 'none', gap: '2.5rem' }}>
-      {/* ── Marble texture overlay ── */}
+      {/* ── Subtle noise texture overlay ── */}
       <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.05, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`, backgroundSize: '400px 400px' }} />
 
       {/* ── Ring complex ── */}

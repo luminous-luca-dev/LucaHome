@@ -73,7 +73,7 @@ export default function HomePage() {
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       <div style={{ backgroundColor: bgColor, color: fgColor, transition: 'background-color 0.45s ease, color 0.45s ease', minHeight: '100vh', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
-        {/* ── Marble texture overlay ── */}
+        {/* ── Subtle noise texture overlay ── */}
         <div
           aria-hidden
           style={{

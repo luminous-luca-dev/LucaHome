@@ -83,21 +83,21 @@ Wrangler の初回実行時は Cloudflare へのログインとプロジェク�
 
 ## 実装済み機能
 
-| 機能                             | 実装                                                |
-| -------------------------------- | --------------------------------------------------- |
-| ローディング画面 円環タイムバー  | `LoadingScreen.tsx` — 3層同心円環 + 進行arc         |
-| スクロール連動昼夜トランジション | `page.tsx` scrollRatio → `rgb()` 補間               |
-| 天体・天秤・円環グラフィック     | `ScrollBackground.tsx` — SVG固定背景                |
-| 大理石テクスチャオーバーレイ     | `page.tsx` + `LoadingScreen.tsx` — SVG feTurbulence |
-| レスポンシブレイアウト           | `globals.css` media queries                         |
-| Playfair Display セリフ体        | `layout.tsx` Next.js Font最適化                     |
+| 機能                            | 実装                                                |
+| ------------------------------- | --------------------------------------------------- |
+| ローディング画面 円環タイムバー | `LoadingScreen.tsx` — 3層同心円環 + 進行arc         |
+| ライト / ダークモード切り替え   | `page.tsx` のテーマトグル + `localStorage` 保存     |
+| 天体・天秤・円環グラフィック    | `ScrollBackground.tsx` — SVG固定背景                |
+| ノイズテクスチャオーバーレイ    | `page.tsx` + `LoadingScreen.tsx` — SVG feTurbulence |
+| レスポンシブレイアウト          | `globals.css` media queries                         |
+| Playfair Display セリフ体       | `layout.tsx` Next.js Font最適化                     |
 
 ## カラーシステム
 
 ```
 Day   #F5F0E8 (クリーム) / #1A1610 (インク)
 Night #0D0C0A (深黒)     / #EDE8DE (クリームテキスト)
-Gold  #C9A84C (アクセント) — スクロール深度と共に濃く
+Gold  #C9A84C (アクセント)
 ```
 
 ## 次のステップ
