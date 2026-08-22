@@ -14,14 +14,22 @@ const NAV_ITEMS = [
 
 const WORKS = [
   { title: '加賀美インダストリアル非公式ファンサイト', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', tags: ['VanillaJS', 'supabase'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。' },
-  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev/', image: '/works/chat-ngt.png', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
-  { title: 'Analytics Dashboard', href: 'https://github.com/luminous-luca-dev', image: '/works/analytics-dashboard.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
+  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
+  { title: 'VTuberボタン メーカー', href: 'https://vtuber-button-factory.pages.dev', image: '/works/vtuber-button.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
+  { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
+];
+
+const SUB_WORKS = [
+  { title: '自己分析【極】', href: 'https://self-analysis-kiwami.pages.dev', tags: ['VanillaJS', 'supabase'], desc: 'ﾋﾞｼﾞﾈｽｱｲﾃﾞｱ大会で共同立案した 就活支援ツールのﾌﾟﾛﾄﾀｲﾌﾟ。のちのちハッカソンで採案され完成に至ったのがPolaris。' },
+  { title: '新歓用プロフィールメーカー', href: 'https://profile-maker-4ls.pages.dev', tags: ['VanillaJS', 'Canvas API'], desc: '新入生歓迎会のとき、各人のプロフィール作成が面倒臭そうだったので作って共有したアプリ。' },
+  { title: 'HTML開示だな', href: 'https://kaizi-htmler.pages.dev', tags: ['VanillaJS'], desc: 'Claude Codeにハマった友人が スマホでhtmlを起動したいと言うので作ったアプリ。LINEで手軽に共有できるようにtxtファイルとの互換性も備えている。' },
+  { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
 ];
 
 const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
-  { group: 'Systems', items: ['C', 'C++', 'Supabase', 'MySQL'] },
+  { group: 'Systems', items: ['C', 'C++', 'Supabase', 'PostgreSQL', 'Cloudflare Workers'] },
   { group: 'Certifications', items: ['基本情報技術者', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者'] },
 ];
 
@@ -102,15 +110,15 @@ export default function HomePage() {
         ════════════════════════════════════════ */}
         <section id="hero" style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '0 3rem', maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(0.75rem, 1vw, 0.85rem)', letterSpacing: '0.3em', textTransform: 'uppercase', opacity: 0.5, marginBottom: '1.5rem' }}>Luca "Taigo Nagata"</p>
-          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 400, lineHeight: 1.05, margin: '0 0 2rem', letterSpacing: '-0.01em' }}>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 400, lineHeight: 1.05, margin: '0 0 2rem', letterSpacing: '-0.01em' }}>
             Create with
             <br />
             <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>Consideration & Passion.</em>
-          </h1>
+          </h2>
           <p style={{ maxWidth: '480px', lineHeight: 1.8, fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', opacity: 0.7, marginBottom: '3rem' }}>More helpful, more hopeful.　現状に甘んじることなく、常に向上していきたいと考えています。</p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#works" style={primaryBtnStyle(fgColor, bgColor)}>
-              Works を見る
+              Works
             </a>
             <a href="#profile" style={ghostBtnStyle(fgColor)}>
               Profile
@@ -129,7 +137,7 @@ export default function HomePage() {
         ════════════════════════════════════════ */}
         <section id="profile" style={sectionStyle}>
           <SectionEyebrow label="I." color={fgColor} />
-          <h2 style={h2Style}>Profile &amp; Philosophy</h2>
+          <h2 style={h2Style}>Profile</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
               <p style={bodyTextStyle}>フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで一貫して設計・実装できます。 Next.jsとPythonを主軸に、データ基盤からUIまで「ユーザーの課題解決」を起点に技術選定を行います。</p>
@@ -175,6 +183,28 @@ export default function HomePage() {
                 </div>
                 <p style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: `rgba(201,168,76,${0.8 + t * 0.2})`, marginBottom: '0.75rem', fontVariantNumeric: 'tabular-nums' }}>{w.metrics}</p>
                 <p style={{ ...bodyTextStyle, fontSize: '0.875rem' }}>{w.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="sub-works-heading">
+            <span className="sub-works-kicker">Side explorations</span>
+            <h3>Sub Works</h3>
+            <p>メインプロダクトの開発と並行して、閃き即行動で作られた雑多なアプリたち</p>
+          </div>
+          <div className="sub-works-grid">
+            {SUB_WORKS.map((work) => (
+              <a key={work.title} href={work.href} target="_blank" rel="noreferrer" className="sub-work-card">
+                <div className="sub-work-topline">
+                  <span>↗</span>
+                  <span>EXPLORE</span>
+                </div>
+                <h4>{work.title}</h4>
+                <p>{work.desc}</p>
+                <div className="sub-work-tags">
+                  {work.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
               </a>
             ))}
           </div>
@@ -234,9 +264,9 @@ export default function HomePage() {
             FOOTER
         ════════════════════════════════════════ */}
         <footer style={{ position: 'relative', zIndex: 10, padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: `1px solid rgba(${fgR},${fgG},${fgB},0.1)`, flexWrap: 'wrap', gap: '1rem' }}>
-          <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '0.8rem', letterSpacing: '0.15em', opacity: 0.4 }}>© 2025 Portfolio</span>
+          <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '0.8rem', letterSpacing: '0.15em', opacity: 0.4 }}>© 2026 Luca</span>
           <div style={{ display: 'flex', gap: '2rem' }}>
-            {['GitHub', 'LinkedIn', 'Contact'].map((label) => (
+            {['GitHub', 'X(Twitter)', 'Contact'].map((label) => (
               <a key={label} href="https://github.com/luminous-luca-dev" style={{ color: fgColor, textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.45, transition: 'opacity 0.2s' }} onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.9')} onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.45')}>
                 {label}
               </a>
