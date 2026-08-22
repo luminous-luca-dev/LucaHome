@@ -5,6 +5,7 @@
   "useTabs": false,
   "trailingComma": "es5",
   "printWidth": 1000,
+  "objectWrap": "collapse",
   "bracketSameLine": true,
   "htmlWhitespaceSensitivity": "ignore"
 }

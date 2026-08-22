@@ -87,32 +87,9 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
   const pct = Math.round(progress * 100);
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 1000,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#F5F0E8',
-        opacity: phase === 'fading' ? 0 : 1,
-        transition: phase === 'fading' ? 'opacity 0.6s ease-out' : 'none',
-        gap: '2.5rem',
-      }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F5F0E8', opacity: phase === 'fading' ? 0 : 1, transition: phase === 'fading' ? 'opacity 0.6s ease-out' : 'none', gap: '2.5rem' }}>
       {/* ── Marble texture overlay ── */}
-      <div
-        aria-hidden
-        style={{
-          position: 'absolute',
-          inset: 0,
-          pointerEvents: 'none',
-          opacity: 0.05,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-          backgroundSize: '400px 400px',
-        }}
-      />
+      <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.05, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`, backgroundSize: '400px 400px' }} />
 
       {/* ── Ring complex ── */}
       <div style={{ position: 'relative', width: `${SIZE}px`, height: `${SIZE}px` }}>
@@ -185,28 +162,9 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
 
       {/* ── Logotype below ring ── */}
       <div style={{ textAlign: 'center' }}>
-        <p
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: '1rem',
-            letterSpacing: '0.35em',
-            color: '#1A1610',
-            opacity: 0.45,
-            margin: 0,
-            textTransform: 'uppercase',
-          }}>
-          Portfolio
-        </p>
+        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '1rem', letterSpacing: '0.35em', color: '#1A1610', opacity: 0.45, margin: 0, textTransform: 'uppercase' }}>Portfolio</p>
         {/* Thin gold rule */}
-        <div
-          style={{
-            width: `${progress * 120}px`,
-            height: '1px',
-            background: 'linear-gradient(to right, transparent, #C9A84C, transparent)',
-            margin: '0.75rem auto 0',
-            transition: 'width 0.1s linear',
-          }}
-        />
+        <div style={{ width: `${progress * 120}px`, height: '1px', background: 'linear-gradient(to right, transparent, #C9A84C, transparent)', margin: '0.75rem auto 0', transition: 'width 0.1s linear' }} />
       </div>
     </div>
   );

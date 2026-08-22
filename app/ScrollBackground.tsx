@@ -34,15 +34,7 @@ export default function ScrollBackground({ isDark }: Props) {
   const moonOpacity = Math.max(0, t * 2 - 0.8);
 
   return (
-    <div
-      aria-hidden
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 1,
-        pointerEvents: 'none',
-        overflow: 'hidden',
-      }}>
+    <div aria-hidden style={{ position: 'fixed', inset: 0, zIndex: 1, pointerEvents: 'none', overflow: 'hidden' }}>
       <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }} preserveAspectRatio="xMidYMid slice">
         <defs>
           {/* Radial gold glow */}
