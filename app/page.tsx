@@ -12,6 +12,12 @@ const NAV_ITEMS = [
   { label: 'Skills', href: '#skills' },
 ];
 
+const FOOTER_LINKS = [
+  { label: 'GitHub', href: 'https://github.com/luminous-luca-dev' },
+  { label: 'X(Twitter)', href: 'https://x.com/Luca_lumitec' },
+  { label: 'Contact', href: 'mailto:' },
+];
+
 const WORKS = [
   { title: '加賀美インダストリアル非公式ファンサイト', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', tags: ['VanillaJS', 'supabase'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。' },
   { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
@@ -109,13 +115,17 @@ export default function HomePage() {
             HERO
         ════════════════════════════════════════ */}
         <section id="hero" style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '0 3rem', maxWidth: '900px', margin: '0 auto' }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(0.75rem, 1vw, 0.85rem)', letterSpacing: '0.3em', textTransform: 'uppercase', opacity: 0.5, marginBottom: '1.5rem' }}>Luca "Taigo Nagata"</p>
+          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(0.75rem, 1vw, 0.85rem)', letterSpacing: '0.3em', textTransform: 'uppercase', opacity: 0.5, marginBottom: '1.5rem' }}>Luca = Taigo Nagata</p>
           <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 400, lineHeight: 1.05, margin: '0 0 2rem', letterSpacing: '-0.01em' }}>
-            Create with
+            Life has
             <br />
-            <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>Consideration & Passion.</em>
+            <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>Mountains &amp; Valleys.</em>
           </h2>
-          <p style={{ maxWidth: '480px', lineHeight: 1.8, fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', opacity: 0.7, marginBottom: '3rem' }}>More helpful, more hopeful.　現状に甘んじることなく、常に向上していきたいと考えています。</p>
+          <p style={{ maxWidth: '480px', lineHeight: 1.8, fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', opacity: 0.7, marginBottom: '3rem' }}>
+            永田のポートフォリオサイトへようこそ。ゆっくりしていってね。
+            <br />
+            Youth is not a time of life; it is a state of mind.
+          </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#works" style={primaryBtnStyle(fgColor, bgColor)}>
               Works
@@ -266,8 +276,8 @@ export default function HomePage() {
         <footer style={{ position: 'relative', zIndex: 10, padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: `1px solid rgba(${fgR},${fgG},${fgB},0.1)`, flexWrap: 'wrap', gap: '1rem' }}>
           <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '0.8rem', letterSpacing: '0.15em', opacity: 0.4 }}>© 2026 Luca</span>
           <div style={{ display: 'flex', gap: '2rem' }}>
-            {['GitHub', 'X(Twitter)', 'Contact'].map((label) => (
-              <a key={label} href="https://github.com/luminous-luca-dev" style={{ color: fgColor, textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.45, transition: 'opacity 0.2s' }} onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.9')} onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.45')}>
+            {FOOTER_LINKS.map(({ label, href }) => (
+              <a key={label} href={href} style={{ color: fgColor, textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.45, transition: 'opacity 0.2s' }} onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.9')} onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.45')}>
                 {label}
               </a>
             ))}
