@@ -164,8 +164,8 @@ export default function HomePage() {
           <h2 style={h2Style}>Profile</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
-              <p style={bodyTextStyle}>フルスタックエンジニアとして、フロントエンドからバックエンド、インフラまで一貫して設計・実装できます。 Next.jsとPythonを主軸に、データ基盤からUIまで「ユーザーの課題解決」を起点に技術選定を行います。</p>
-              <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}>コードは手段であり、最終目標は「使われ、価値を生む」プロダクトです。 チームの中では、設計の議論を積極的に起こしつつ、合意後は迅速に実行に移す姿勢を大切にしています。</p>
+              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。</p>
+              <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
             </div>
             <div>
               <h3 style={h3Style}>モノづくりの姿勢</h3>
