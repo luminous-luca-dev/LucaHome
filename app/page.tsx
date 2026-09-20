@@ -19,17 +19,31 @@ const FOOTER_LINKS = [
 ];
 
 const WORKS = [
-  { title: '加賀美インダストリアル非公式ファンサイト', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', tags: ['VanillaJS', 'supabase'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'ファンコミュニティ向けの情報集約サイト。SEO最適化とUX設計により高トラフィックを実現。' },
-  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', tags: ['React', 'Canvas API'], metrics: '1,200 DAU', desc: 'ブラウザ上で完結するリアルタイムゲーム。パフォーマンスボトルネックを特定し60fps安定稼働。' },
-  { title: 'VTuberボタン メーカー', href: 'https://vtuber-button-factory.pages.dev', image: '/works/vtuber-button.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
-  { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', tags: ['Python', 'FastAPI', 'React'], metrics: 'Internal tool · 15 users', desc: 'データパイプラインと可視化基盤の一気通貫実装。チームの意思決定速度を大幅に改善。' },
+  { title: '加賀美インダストリアル非公式ホームページ', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', 
+    tags: ['VanillaJS', 'supabase','GitHub Actions','CI/CD','SEO'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'にじさんじ所属VTuber加賀美ハヤトさんの会社「加賀美インダストリアル」の非公式ホームページ。公開時のポストは8,225いいね、1,486RPを獲得した。' },
+
+  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', 
+    tags: ['VanillaJS', 'リアルタイム処理(supabase)','PWA','プッシュ通知'], metrics: '34 users / 10 subscriptions', desc: '僕の会話を再現したAI「Chat-NGT」の学習データを収集するために作った匿名で僕と会話できるアプリ。アプリ化（PWA）と通知機能を備えている。' },
+
+  { title: 'VTuberボタン メーカー Version β', href: 'https://vtuber-button-factory.pages.dev', image: '/works/vtuber-button.png', 
+    tags: ['VanillaJS','File API'], metrics: 'Kenmochi Touko is cute.', desc: 'VTuber界隈には、推しの声をボタン化して楽しむ形の推し活がある。ただしある程度の技術知識がなければサイトは作れない。だからボタンサイトを超手軽に作成できるといいなで作られたWebアプリ。現在鋭意開発中。' },
+
+  { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', 
+    tags: ["React","Vite","Zustand"], metrics: '5 gameplay systems', desc: '錬金術と化学を融合し、中高化学の学習を補佐するような、かつ普通の放置系ゲームのような楽しさを兼ね備えたゲームとして作成。フロギストンを使用して物質素材と元素を可逆変換することが出来る。' },
 ];
 
 const SUB_WORKS = [
-  { title: '自己分析【極】', href: 'https://self-analysis-kiwami.pages.dev', tags: ['VanillaJS', 'supabase'], desc: 'ﾋﾞｼﾞﾈｽｱｲﾃﾞｱ大会で共同立案した 就活支援ツールのﾌﾟﾛﾄﾀｲﾌﾟ。のちのちハッカソンで採案され完成に至ったのがPolaris。' },
-  { title: '新歓用プロフィールメーカー', href: 'https://profile-maker-4ls.pages.dev', tags: ['VanillaJS', 'Canvas API'], desc: '新入生歓迎会のとき、各人のプロフィール作成が面倒臭そうだったので作って共有したアプリ。' },
-  { title: 'HTML開示だな', href: 'https://kaizi-htmler.pages.dev', tags: ['VanillaJS'], desc: 'Claude Codeにハマった友人が スマホでhtmlを起動したいと言うので作ったアプリ。LINEで手軽に共有できるようにtxtファイルとの互換性も備えている。' },
-  { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
+  { title: '自己分析【極】', href: 'https://self-analysis-kiwami.pages.dev', tags: ['VanillaJS', 'supabase'], 
+    desc: 'ﾋﾞｼﾞﾈｽｱｲﾃﾞｱ大会で共同立案した 就活支援ツールのﾌﾟﾛﾄﾀｲﾌﾟ。のちのちハッカソンで採案され完成に至ったのがPolaris。' },
+
+  { title: '新歓用プロフィールメーカー', href: 'https://profile-maker-4ls.pages.dev', tags: ['VanillaJS', 'Canvas API'], 
+    desc: '新入生歓迎会のとき、各人のプロフィール作成が面倒臭そうだったので作って共有したアプリ。' },
+
+  { title: 'HTML開示だな', href: 'https://kaizi-htmler.pages.dev', tags: ['VanillaJS'], 
+    desc: 'Claude Codeにハマった友人が スマホでhtmlを起動したいと言うので作ったアプリ。LINEで手軽に共有できるようにtxtファイルとの互換性も備えている。' },
+
+  { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], 
+    desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
 ];
 
 const SKILLS = [
