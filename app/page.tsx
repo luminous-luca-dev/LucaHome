@@ -50,7 +50,8 @@ const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
   { group: 'Systems', items: ['C', 'C++', 'Supabase', 'PostgreSQL', 'Cloudflare Workers'] },
-  { group: 'Certifications', items: ['基本情報技術者', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者'] },
+  { group: 'Advanced Tech', items: ['Deep Learning', 'PyTorch', 'Quantum Computing', 'Qiskit'] },
+  { group: 'Certifications', items: ['基本情報技術者','JDLA Deep Learning for GENERAL(G検定)','日商簿記検定３級', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者','英検２級'] },
 ];
 
 // ─── Main page ───────────────────────────────────────────────────────────────
