@@ -165,7 +165,7 @@ export default function HomePage() {
           <h2 style={h2Style}>Profile</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
-              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。</p>
+              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。<br>ここはまだ作成途中のポートフォリオです（汗）<br>温かい目で見守っていただければと思います☻</br></br></p>
               <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
             </div>
             {/* <div>
