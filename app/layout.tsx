@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto', display: 'swap', weight: ['400', '500'] });
 
-export const metadata: Metadata = { title: 'Portfolio — Software Engineer', description: 'フルスタックエンジニアのポートフォリオ。Next.js・TypeScript・Pythonを軸に、ユーザーに届くプロダクトを作ります。', openGraph: { title: 'Portfolio — Luca', description: '永田のポートフォリオサイトへようこそ。ゆっくりしていってね！　Youth is not a time of life; it is a state of mind.', type: 'website' } };
+export const metadata: Metadata = { title: 'Portfolio — Luca', description: 'フルスタックエンジニアのポートフォリオ。Next.js・TypeScript・Pythonを軸に、ユーザーに届くプロダクトを作ります。', 
+                                    openGraph: { title: 'Portfolio — Luca', description: '永田のポートフォリオサイトへようこそ。ゆっくりしていってね！　Youth is not a time of life; it is a state of mind.', type: 'website' } };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
