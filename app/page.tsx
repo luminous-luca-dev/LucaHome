@@ -168,7 +168,7 @@ export default function HomePage() {
               <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。</p>
               <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
             </div>
-            <div>
+            {/* <div>
               <h3 style={h3Style}>モノづくりの姿勢</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {[
@@ -182,7 +182,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -238,7 +238,7 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             DEVELOPMENT PROCESS
         ════════════════════════════════════════ */}
-        <section id="process" style={sectionStyle}>
+        {/* <section id="process" style={sectionStyle}>
           <SectionEyebrow label="III." color={fgColor} />
           <h2 style={h2Style}>Development Process</h2>
           <p style={{ ...bodyTextStyle, maxWidth: '560px', marginTop: '1.5rem', marginBottom: '3.5rem' }}>「なぜ作るか」から始まり、技術選定・設計・実装・改善サイクルまでの思考プロセスを公開します。 各Workの詳細ページで、意思決定の理由と学びを余すことなく記述しています。</p>
@@ -260,7 +260,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* ════════════════════════════════════════
             SKILLS & CERTIFICATIONS
