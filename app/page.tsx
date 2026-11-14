@@ -165,7 +165,7 @@ export default function HomePage() {
           <h2 style={h2Style}>Profile</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
-              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。<br>最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。</br><br>ここはまだ作成途中のポートフォリオです（汗）</br><br>温かい目で見守っていただければと思います☻</br></p>
+              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。<br />最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。<br />ここはまだ作成途中のポートフォリオです（汗）<br />温かい目で見守っていただければと思います☻<br /></p>
               <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
             </div>
             {/* <div>
