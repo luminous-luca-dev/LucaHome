@@ -30,6 +30,32 @@ npm run dev
 # → http://localhost:3000
 ```
 
+## Prettierでコードを整形
+
+依存パッケージがまだインストールされていない場合は、先に次を実行します。
+
+```bash
+npm install
+```
+
+プロジェクトで指定しているファイルをまとめて整形するには、次を実行します。
+
+```bash
+npm run format
+```
+
+整形による変更が必要か確認するだけなら、次を使います。
+
+```bash
+npm run format:check
+```
+
+特定のファイルだけ整形する場合は、対象のパスを指定します。
+
+```bash
+npx prettier --write app/page.tsx
+```
+
 ## VanillaJS 版
 
 Next.js に依存しないコピーを `vanilla/` に用意しています。`vanilla/index.html` をブラウザで直接開くか、プロジェクトのルートで次のコマンドを実行してください。

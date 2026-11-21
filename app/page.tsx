@@ -19,47 +19,36 @@ const FOOTER_LINKS = [
 ];
 
 const WORKS = [
-  { title: '加賀美インダストリアル非公式ホームページ', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', 
-    tags: ['VanillaJS', 'supabase','GitHub Actions','CI/CD','SEO'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'にじさんじ所属VTuber加賀美ハヤトさんの会社「加賀美インダストリアル」の非公式ホームページ。公開時のポストは8,225いいね、1,486RPを獲得した。' },
+  { title: '加賀美インダストリアル非公式ホームページ', href: 'https://kagami-industrial-unofficial-fansite.pages.dev', image: '/works/kagami.png', tags: ['VanillaJS', 'supabase', 'GitHub Actions', 'CI/CD', 'SEO'], metrics: '30,000 PV / week · 10,000 sessions', desc: 'にじさんじ所属VTuber加賀美ハヤトさんの会社「加賀美インダストリアル」の非公式ホームページ。公開時のポストは8,225いいね、1,486RPを獲得した。' },
 
-  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', 
-    tags: ['VanillaJS', 'リアルタイム処理(supabase)','PWA','プッシュ通知'], metrics: '34 users / 10 subscriptions', desc: '僕の会話を再現したAI「Chat-NGT」の学習データを収集するために作った匿名で僕と会話できるアプリ。アプリ化（PWA）と通知機能を備えている。' },
+  { title: 'Chat-NGT データ収集用チャットアプリ', href: 'https://luca-gpt-assemble.pages.dev', image: '/works/chat-ngt.png', tags: ['VanillaJS', 'リアルタイム処理(supabase)', 'PWA', 'プッシュ通知'], metrics: '34 users / 10 subscriptions', desc: '僕の会話を再現したAI「Chat-NGT」の学習データを収集するために作った匿名で僕と会話できるアプリ。アプリ化（PWA）と通知機能を備えている。' },
 
-  { title: 'VTuberボタン メーカー Version β', href: 'https://vtuber-button-factory.pages.dev', image: '/works/vtuber-button.png', 
-    tags: ['VanillaJS','File API'], metrics: 'Kenmochi Touko is cute.', desc: 'VTuber界隈には、推しの声をボタン化して楽しむ形の推し活がある。ただしある程度の技術知識がなければサイトは作れない。だからボタンサイトを超手軽に作成できるといいなで作られたWebアプリ。現在鋭意開発中。' },
+  { title: 'VTuberボタン メーカー Version β', href: 'https://vtuber-button-factory.pages.dev', image: '/works/vtuber-button.png', tags: ['VanillaJS', 'File API'], metrics: 'Kenmochi Touko is cute.', desc: 'VTuber界隈には、推しの声をボタン化して楽しむ形の推し活がある。ただしある程度の技術知識がなければサイトは作れない。だからボタンサイトを超手軽に作成できるといいなで作られたWebアプリ。現在鋭意開発中。' },
 
-  { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', 
-    tags: ["React","Vite","Zustand"], metrics: '5 gameplay systems', desc: '錬金術と化学を融合し、中高化学の学習を補佐するような、かつ普通の放置系ゲームのような楽しさを兼ね備えたゲームとして作成。フロギストンを使用して物質素材と元素を可逆変換することが出来る。' },
+  { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', tags: ['React', 'Vite', 'Zustand'], metrics: '5 gameplay systems', desc: '錬金術と化学を融合し、中高化学の学習を補佐するような、かつ普通の放置系ゲームのような楽しさを兼ね備えたゲームとして作成。フロギストンを使用して物質素材と元素を可逆変換することが出来る。' },
 
-  { title: '量子チャット', href: 'https://quantum-chat-61o.pages.dev', image: '/works/quantum-chat.png', 
-    tags: ["React","Python","FastAPI","Render"], metrics: 'First Backend Deployment for My Own Project', desc: '量子テレポーテーションのアルゴリズムを活用した量子暗号を使った未来のチャットアプリ。これはシミュレータだが、原理上絶対に盗聴されない。量子コンピュータの勉強の実践として量子回路やアルゴリズムを可視化しつつ作成。' },
+  { title: '量子チャット', href: 'https://quantum-chat-61o.pages.dev', image: '/works/quantum-chat.png', tags: ['React', 'Python', 'FastAPI', 'Render'], metrics: 'First Backend Deployment for My Own Project', desc: '量子テレポーテーションのアルゴリズムを活用した量子暗号を使った未来のチャットアプリ。これはシミュレータだが、原理上絶対に盗聴されない。量子コンピュータの勉強の実践として量子回路やアルゴリズムを可視化しつつ作成。' },
 ];
 
 const SUB_WORKS = [
-  { title: '自己分析【極】', href: 'https://self-analysis-kiwami.pages.dev', tags: ['VanillaJS', 'supabase'], 
-    desc: 'ﾋﾞｼﾞﾈｽｱｲﾃﾞｱ大会で共同立案した 就活支援ツールのﾌﾟﾛﾄﾀｲﾌﾟ。のちのちハッカソンで採案され完成に至ったのがPolaris。' },
+  { title: '自己分析【極】', href: 'https://self-analysis-kiwami.pages.dev', tags: ['VanillaJS', 'supabase'], desc: 'ﾋﾞｼﾞﾈｽｱｲﾃﾞｱ大会で共同立案した 就活支援ツールのﾌﾟﾛﾄﾀｲﾌﾟ。のちのちハッカソンで採案され完成に至ったのがPolaris。' },
 
-  { title: '新歓用プロフィールメーカー', href: 'https://profile-maker-4ls.pages.dev', tags: ['VanillaJS', 'Canvas API'], 
-    desc: '新入生歓迎会のとき、各人のプロフィール作成が面倒臭そうだったので作って共有したアプリ。' },
+  { title: '新歓用プロフィールメーカー', href: 'https://profile-maker-4ls.pages.dev', tags: ['VanillaJS', 'Canvas API'], desc: '新入生歓迎会のとき、各人のプロフィール作成が面倒臭そうだったので作って共有したアプリ。' },
 
-  { title: 'HTML開示だな', href: 'https://kaizi-htmler.pages.dev', tags: ['VanillaJS'], 
-    desc: 'Claude Codeにハマった友人が スマホでhtmlを起動したいと言うので作ったアプリ。LINEで手軽に共有できるようにtxtファイルとの互換性も備えている。' },
+  { title: 'HTML開示だな', href: 'https://kaizi-htmler.pages.dev', tags: ['VanillaJS'], desc: 'Claude Codeにハマった友人が スマホでhtmlを起動したいと言うので作ったアプリ。LINEで手軽に共有できるようにtxtファイルとの互換性も備えている。' },
 
-  { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], 
-    desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
+  { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
 
-  { title: 'インスタ用コラージュメーカー', href: 'https://instagram-collage-maker-forme.pages.dev', tags: ['Face API','Canvas API'], 
-    desc: '母校の文化祭で後輩と撮った写真をストーリーに上げようとした時、まとめるのと顔隠すのが面倒すぎてツール化した。顔認識でモザイク処理や絵文字上書きができる。' },
+  { title: 'インスタ用コラージュメーカー', href: 'https://instagram-collage-maker-forme.pages.dev', tags: ['Face API', 'Canvas API'], desc: '母校の文化祭で後輩と撮った写真をストーリーに上げようとした時、まとめるのと顔隠すのが面倒すぎてツール化した。顔認識でモザイク処理や絵文字上書きができる。' },
 
-  { title: '講義用セキュリティシミュレーター', href: 'https://security-simulator-for-fellow-alum.pages.dev', tags: ['Brute-force','SQL injection'], 
-    desc: '後輩たちへの自分の活動紹介を依頼され、講義形式で「ハッキングをしてみよう！」というプレゼンをしたときに使ったもの。DeveloperToolで書き換える前提の設計。' },
+  { title: '講義用セキュリティシミュレーター', href: 'https://security-simulator-for-fellow-alum.pages.dev', tags: ['Brute-force', 'SQL injection'], desc: '後輩たちへの自分の活動紹介を依頼され、講義形式で「ハッキングをしてみよう！」というプレゼンをしたときに使ったもの。DeveloperToolで書き換える前提の設計。' },
 ];
 const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
   { group: 'Systems', items: ['C', 'C++', 'Supabase', 'PostgreSQL', 'Cloudflare Workers'] },
   { group: 'Advanced Tech', items: ['Deep Learning', 'PyTorch', 'Quantum Computing', 'Qiskit'] },
-  { group: 'Certifications', items: ['基本情報技術者','JDLA Deep Learning for GENERAL(G検定)','日商簿記検定３級', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者','英検２級'] },
+  { group: 'Certifications', items: ['基本情報技術者', 'JDLA Deep Learning for GENERAL(G検定)', '日商簿記検定３級', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者', '英検２級'] },
 ];
 
 // ─── Main page ───────────────────────────────────────────────────────────────
@@ -173,7 +162,16 @@ export default function HomePage() {
           <h2 style={h2Style}>Profile</h2>
           <div className="profile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
-              <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。<br />最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。<br />ここはまだ作成途中のポートフォリオです（汗）<br />温かい目で見守っていただければと思います☻<br /></p>
+              <p style={bodyTextStyle}>
+                お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。
+                <br />
+                最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。
+                <br />
+                ここはまだ作成途中のポートフォリオです（汗）
+                <br />
+                温かい目で見守っていただければと思います☻
+                <br />
+              </p>
               <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
             </div>
             {/* <div>
