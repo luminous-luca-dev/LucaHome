@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   onComplete: () => void;
+  isDark: boolean;
   /** Duration in ms. Default: 2400 */
   duration?: number;
 }
@@ -17,7 +18,7 @@ interface Props {
  * 外側の円環がタイムバーとして充填される。
  * 完了後はフェードアウトしてmountを解除。
  */
-export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
+export default function LoadingScreen({ onComplete, isDark, duration = 2400 }: Props) {
   // 追加: ブラウザでのマウント状態を管理
   const [isMounted, setIsMounted] = useState(false);
 
@@ -25,6 +26,8 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
   const [phase, setPhase] = useState<'loading' | 'fading'>('loading');
   const startRef = useRef<number | null>(null);
   const rafRef = useRef<number | null>(null);
+  const background = isDark ? 'radial-gradient(ellipse at 50% 40%, rgba(201, 168, 76, 0.11) 0%, rgba(201, 168, 76, 0.035) 38%, transparent 68%), #0D0C0A' : '#F5F0E8';
+  const foregroundColor = isDark ? '#EDE8DE' : '#1A1610';
 
   useEffect(() => {
     // コンポーネントがマウントされたら true にする
@@ -55,16 +58,7 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
 
   // ▼▼▼ 追加: マウントされるまでは何も表示しない（または背景色だけの空のdiv） ▼▼▼
   if (!isMounted) {
-    return (
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 1000,
-          backgroundColor: '#F5F0E8', // 背景色だけ合わせておくことでチラつきを防止
-        }}
-      />
-    );
+    return <div style={{ position: 'fixed', inset: 0, zIndex: 1000, background }} />;
   }
   // ▲▲▲ ここまで ▲▲▲
 
@@ -87,7 +81,7 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
   const pct = Math.round(progress * 100);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#F5F0E8', opacity: phase === 'fading' ? 0 : 1, transition: phase === 'fading' ? 'opacity 0.6s ease-out' : 'none', gap: '2.5rem' }}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background, opacity: phase === 'fading' ? 0 : 1, transition: phase === 'fading' ? 'opacity 0.6s ease-out' : 'none', gap: '2.5rem' }}>
       {/* ── Subtle noise texture overlay ── */}
       <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.05, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`, backgroundSize: '400px 400px' }} />
 
@@ -123,7 +117,7 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
             const angle = (i / 36) * 2 * Math.PI - Math.PI / 2;
             const r1 = R_OUTER + 5;
             const r2 = R_OUTER + (i % 9 === 0 ? 11 : 8);
-            return <line key={i} x1={CX + r1 * Math.cos(angle)} y1={CY + r1 * Math.sin(angle)} x2={CX + r2 * Math.cos(angle)} y2={CY + r2 * Math.sin(angle)} stroke="#1A1610" strokeWidth={i % 9 === 0 ? '1' : '0.5'} opacity={i % 9 === 0 ? '0.2' : '0.1'} />;
+            return <line key={i} x1={CX + r1 * Math.cos(angle)} y1={CY + r1 * Math.sin(angle)} x2={CX + r2 * Math.cos(angle)} y2={CY + r2 * Math.sin(angle)} stroke={foregroundColor} strokeWidth={i % 9 === 0 ? '1' : '0.5'} opacity={i % 9 === 0 ? '0.2' : '0.1'} />;
           })}
 
           {/* ── Middle rotating ring ── */}
@@ -151,10 +145,10 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
           <circle cx={CX} cy={CY} r="1.2" fill="#C9A84C" opacity="0.9" />
 
           {/* ── Percentage counter ── */}
-          <text x={CX} y={CY - 10} textAnchor="middle" dominantBaseline="middle" fill="#1A1610" fontSize="11" fontFamily="'Playfair Display', Georgia, serif" opacity="0.45" letterSpacing="1">
+          <text x={CX} y={CY - 10} textAnchor="middle" dominantBaseline="middle" fill={foregroundColor} fontSize="11" fontFamily="'Playfair Display', Georgia, serif" opacity="0.45" letterSpacing="1">
             {pct}
           </text>
-          <text x={CX} y={CY + 8} textAnchor="middle" dominantBaseline="middle" fill="#1A1610" fontSize="6" fontFamily="'Inter', sans-serif" letterSpacing="3" opacity="0.3">
+          <text x={CX} y={CY + 8} textAnchor="middle" dominantBaseline="middle" fill={foregroundColor} fontSize="6" fontFamily="'Inter', sans-serif" letterSpacing="3" opacity="0.3">
             LOADING
           </text>
         </svg>
@@ -162,7 +156,7 @@ export default function LoadingScreen({ onComplete, duration = 2400 }: Props) {
 
       {/* ── Logotype below ring ── */}
       <div style={{ textAlign: 'center' }}>
-        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '1rem', letterSpacing: '0.35em', color: '#1A1610', opacity: 0.45, margin: 0, textTransform: 'uppercase' }}>Portfolio</p>
+        <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '1rem', letterSpacing: '0.35em', color: foregroundColor, opacity: 0.45, margin: 0, textTransform: 'uppercase' }}>Portfolio</p>
         {/* Thin gold rule */}
         <div style={{ width: `${progress * 120}px`, height: '1px', background: 'linear-gradient(to right, transparent, #C9A84C, transparent)', margin: '0.75rem auto 0', transition: 'width 0.1s linear' }} />
       </div>

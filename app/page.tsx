@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import LoadingScreen from './LoadingScreen';
 import ScrollBackground from './ScrollBackground';
 
@@ -74,6 +74,7 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDark, setIsDark] = useState(false);
   const [teikyoStatus, setTeikyoStatus] = useState('帝京大学1年生');
+  const completeLoading = useCallback(() => setIsLoading(false), []);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('luca-theme');
@@ -109,7 +110,7 @@ export default function HomePage() {
 
   return (
     <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      {isLoading && <LoadingScreen isDark={isDark} onComplete={completeLoading} />}
 
       <div style={{ backgroundColor: bgColor, color: fgColor, transition: 'background-color 0.45s ease, color 0.45s ease', minHeight: '100vh', fontFamily: "'Inter', 'Noto Sans JP', sans-serif" }}>
         {/* ── Subtle noise texture overlay ── */}
