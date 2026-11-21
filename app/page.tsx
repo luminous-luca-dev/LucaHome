@@ -47,8 +47,13 @@ const SUB_WORKS = [
 
   { title: 'ESに文章貼り付けられる君', href: 'https://kanji-restorer.pages.dev', tags: ['VanillaJS'], 
     desc: '某就活サービスにてペーストした文字Unicodeが狂い混乱を招いていたため思いついたツール。特に使用されてはいない。' },
-];
 
+  { title: 'インスタ用コラージュメーカー', href: 'https://instagram-collage-maker-forme.pages.dev', tags: ['Face API','Canvas API'], 
+    desc: '母校の文化祭で後輩と撮った写真をストーリーに上げようとした時、まとめるのと顔隠すのが面倒すぎてツール化した。顔認識でモザイク処理や絵文字上書きができる。' },
+
+  { title: '講義用セキュリティシミュレーター', href: 'https://security-simulator-for-fellow-alum.pages.dev', tags: ['Brute-force','SQL injection'], 
+    desc: '後輩たちへの自分の活動紹介を依頼され、講義形式で「ハッキングをしてみよう！」というプレゼンをしたときに使ったもの。DeveloperToolで書き換える前提の設計。' },
+];
 const SKILLS = [
   { group: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'] },
   { group: 'Backend', items: ['Python', 'Go', 'FastAPI', 'Node.js'] },
