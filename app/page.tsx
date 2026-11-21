@@ -64,6 +64,11 @@ function getTeikyoStatus(date: Date): string {
   return `帝京大学${Math.max(yearOfStudy, 1)}年生`;
 }
 
+function getDefaultDarkMode(date: Date): boolean {
+  const hour = date.getHours();
+  return hour >= 18 || hour < 6;
+}
+
 // ─── Main page ───────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -73,6 +78,8 @@ export default function HomePage() {
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('luca-theme');
     if (savedTheme === 'dark') setIsDark(true);
+    else if (savedTheme === 'light') setIsDark(false);
+    else setIsDark(getDefaultDarkMode(new Date()));
 
     const updateTeikyoStatus = () => setTeikyoStatus(getTeikyoStatus(new Date()));
     updateTeikyoStatus();
