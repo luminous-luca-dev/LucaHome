@@ -11,7 +11,7 @@
     "format:check": "prettier --check app vanilla next.config.js next.config.ts tsconfig.json package.json README.md"
   },
   "dependencies": {
-    "next": "14.2.x",
+    "next": "15.5.29",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -21,5 +21,10 @@
     "@types/react-dom": "^18",
     "prettier": "^3.9.6",
     "typescript": "^5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.23"
+    }
   }
 }
