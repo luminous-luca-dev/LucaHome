@@ -51,14 +51,34 @@ const SKILLS = [
   { group: 'Certifications', items: ['基本情報技術者', 'JDLA Deep Learning for GENERAL(G検定)', '日商簿記検定３級', 'MOS Word 365&2019', 'MOS Excel 365&2019', '映像音響処理技術者', '英検２級'] },
 ];
 
+const TEIKYO_START_ACADEMIC_YEAR = 2026;
+const TEIKYO_PROGRAM_YEARS = 4;
+const TOKYO_TIME_OFFSET_MS = 9 * 60 * 60 * 1000;
+
+function getTeikyoStatus(date: Date): string {
+  const tokyoDate = new Date(date.getTime() + TOKYO_TIME_OFFSET_MS);
+  const academicYear = tokyoDate.getUTCFullYear() - (tokyoDate.getUTCMonth() < 3 ? 1 : 0);
+  const yearOfStudy = academicYear - TEIKYO_START_ACADEMIC_YEAR + 1;
+
+  if (yearOfStudy > TEIKYO_PROGRAM_YEARS) return '帝京大学卒業';
+  return `帝京大学${Math.max(yearOfStudy, 1)}年生`;
+}
+
 // ─── Main page ───────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDark, setIsDark] = useState(false);
+  const [teikyoStatus, setTeikyoStatus] = useState('帝京大学1年生');
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('luca-theme');
     if (savedTheme === 'dark') setIsDark(true);
+
+    const updateTeikyoStatus = () => setTeikyoStatus(getTeikyoStatus(new Date()));
+    updateTeikyoStatus();
+    const statusInterval = window.setInterval(updateTeikyoStatus, 24 * 60 * 60 * 1000);
+
+    return () => window.clearInterval(statusInterval);
   }, []);
 
   const t = isDark ? 1 : 0;
@@ -163,7 +183,7 @@ export default function HomePage() {
           <div className="profile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
               <p style={bodyTextStyle}>
-                お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。
+                お越しいただきありがとうございます。{teikyoStatus}の永田大悟と申します。
                 <br />
                 最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。
                 <br />
