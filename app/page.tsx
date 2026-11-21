@@ -116,10 +116,10 @@ export default function HomePage() {
         <ScrollBackground isDark={isDark} />
 
         {/* ── Navigation ── */}
-        <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 3rem', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: `1px solid rgba(${fgR},${fgG},${fgB},0.08)` }}>
+        <nav className="site-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 3rem', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: `1px solid rgba(${fgR},${fgG},${fgB},0.08)` }}>
           <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '1.1rem', letterSpacing: '0.12em', opacity: 0.9 }}>Luca's PORTFOLIO</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-            <ul style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+          <div className="site-nav-inner" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+            <ul className="site-nav-links" style={{ display: 'flex', gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
               {NAV_ITEMS.map(({ label, href }) => (
                 <li key={label}>
                   <a href={href} style={{ color: fgColor, textDecoration: 'none', fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.65, transition: 'opacity 0.2s' }} onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '1')} onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.65')}>
@@ -137,9 +137,9 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             HERO
         ════════════════════════════════════════ */}
-        <section id="hero" style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '0 3rem', maxWidth: '900px', margin: '0 auto' }}>
+        <section id="hero" className="hero-section" style={{ position: 'relative', zIndex: 10, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', padding: '0 3rem', maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(0.75rem, 1vw, 0.85rem)', letterSpacing: '0.3em', textTransform: 'uppercase', opacity: 0.5, marginBottom: '1.5rem' }}>Luca = Taigo Nagata</p>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 400, lineHeight: 1.05, margin: '0 0 2rem', letterSpacing: '-0.01em' }}>
+          <h2 className="hero-title" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(3rem, 7vw, 6rem)', fontWeight: 400, lineHeight: 1.05, margin: '0 0 2rem', letterSpacing: '-0.01em' }}>
             Life has
             <br />
             <em style={{ fontStyle: 'italic', color: `rgba(201,168,76,${0.7 + t * 0.3})` }}>Mountains &amp; Valleys.</em>
@@ -168,10 +168,10 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             PROFILE & PHILOSOPHY
         ════════════════════════════════════════ */}
-        <section id="profile" style={sectionStyle}>
+        <section id="profile" className="content-section" style={sectionStyle}>
           <SectionEyebrow label="I." color={fgColor} />
           <h2 style={h2Style}>Profile</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
+          <div className="profile-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', marginTop: '3rem' }}>
             <div>
               <p style={bodyTextStyle}>お越しいただきありがとうございます。帝京大学n年生の永田大悟と申します。<br />最近は量子コンピュータの学習を進めていて、アメリカの実機に接続していじったりしています。最新の技術としては量子機械学習に興味がわいているので、ディープラーニングの基礎も学習中です。<br />ここはまだ作成途中のポートフォリオです（汗）<br />温かい目で見守っていただければと思います☻<br /></p>
               <p style={{ ...bodyTextStyle, marginTop: '1.5rem' }}></p>
@@ -197,10 +197,10 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             WORKS
         ════════════════════════════════════════ */}
-        <section id="works" style={sectionStyle}>
+        <section id="works" className="content-section" style={sectionStyle}>
           <SectionEyebrow label="II." color={fgColor} />
           <h2 style={h2Style}>Works</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '3rem' }}>
+          <div className="works-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '3rem' }}>
             {WORKS.map((w) => (
               <a key={w.title} href={w.href} target="_blank" rel="noreferrer" className="work-card" style={{ '--work-border': `rgba(${fgR},${fgG},${fgB},0.12)` } as React.CSSProperties}>
                 {/* gold corner accent */}
@@ -273,10 +273,10 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             SKILLS & CERTIFICATIONS
         ════════════════════════════════════════ */}
-        <section id="skills" style={sectionStyle}>
+        <section id="skills" className="content-section" style={sectionStyle}>
           <SectionEyebrow label="IV." color={fgColor} />
           <h2 style={h2Style}>Skills &amp; Certifications</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '3rem', marginTop: '3rem' }}>
+          <div className="skills-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '3rem', marginTop: '3rem' }}>
             {SKILLS.map(({ group, items }) => (
               <div key={group}>
                 <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', opacity: 0.4, marginBottom: '1.25rem' }}>{group}</h3>
@@ -296,9 +296,9 @@ export default function HomePage() {
         {/* ════════════════════════════════════════
             FOOTER
         ════════════════════════════════════════ */}
-        <footer style={{ position: 'relative', zIndex: 10, padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: `1px solid rgba(${fgR},${fgG},${fgB},0.1)`, flexWrap: 'wrap', gap: '1rem' }}>
+        <footer className="site-footer" style={{ position: 'relative', zIndex: 10, padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: `1px solid rgba(${fgR},${fgG},${fgB},0.1)`, flexWrap: 'wrap', gap: '1rem' }}>
           <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '0.8rem', letterSpacing: '0.15em', opacity: 0.4 }}>© 2026 Luca</span>
-          <div style={{ display: 'flex', gap: '2rem' }}>
+          <div className="footer-links" style={{ display: 'flex', gap: '2rem' }}>
             {FOOTER_LINKS.map(({ label, href }) => (
               <a key={label} href={href} style={{ color: fgColor, textDecoration: 'none', fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.45, transition: 'opacity 0.2s' }} onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.9')} onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '0.45')}>
                 {label}

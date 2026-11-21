@@ -321,3 +321,91 @@ body {
     font-size: 0.7rem !important;
   }
 }
+
+@media (max-width: 600px) {
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding: 0.85rem 1.25rem !important;
+  }
+
+  .site-nav > span {
+    max-width: none;
+    font-size: 0.8rem !important;
+  }
+
+  .site-nav-inner {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.75rem !important;
+  }
+
+  .site-nav-links {
+    flex: 1;
+    justify-content: space-between;
+    gap: 0.5rem !important;
+  }
+
+  .site-nav-links li a {
+    font-size: 0.66rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .hero-section {
+    width: 100%;
+    min-height: 100svh !important;
+    padding: 6rem 1.25rem 5rem !important;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    font-size: clamp(2.4rem, 11vw, 3.8rem) !important;
+    letter-spacing: -0.02em !important;
+    overflow-wrap: anywhere;
+  }
+
+  .content-section {
+    width: 100%;
+    padding: 5.5rem 1.25rem !important;
+  }
+
+  .content-section > h2 {
+    font-size: clamp(1.55rem, 7vw, 2.1rem) !important;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .profile-grid,
+  .works-grid,
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-width: 0;
+  }
+
+  .profile-grid {
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .works-grid,
+  .skills-grid {
+    gap: 1.25rem !important;
+    margin-top: 2rem !important;
+  }
+
+  .work-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start !important;
+    padding: 2rem 1.25rem !important;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 1.25rem !important;
+  }
+}
