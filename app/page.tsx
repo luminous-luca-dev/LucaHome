@@ -30,6 +30,9 @@ const WORKS = [
 
   { title: 'Element Quest', href: 'https://element-quest.pages.dev', image: '/works/element.png', 
     tags: ["React","Vite","Zustand"], metrics: '5 gameplay systems', desc: '錬金術と化学を融合し、中高化学の学習を補佐するような、かつ普通の放置系ゲームのような楽しさを兼ね備えたゲームとして作成。フロギストンを使用して物質素材と元素を可逆変換することが出来る。' },
+
+  { title: 'Element Quest', href: 'https://quantum-chat-61o.pages.dev', image: '/works/quantum-chat.png', 
+    tags: ["React","Python","FastAPI","Render"], metrics: 'First Backend Deployment for My Own Project', desc: '量子テレポーテーションのアルゴリズムを活用した量子暗号を使った未来のチャットアプリ。これはシミュレータだが、原理上絶対に盗聴されない。量子コンピュータの勉強の実践として量子回路やアルゴリズムを可視化しつつ作成。' },
 ];
 
 const SUB_WORKS = [
